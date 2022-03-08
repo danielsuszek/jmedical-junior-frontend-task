@@ -5,7 +5,7 @@ interface CountriesProps {
   countries: Country[]
 }
 
-const MainPage: FC<CountriesProps> = ({countries}) => {
+const MainPage: FC<CountriesProps> = ({countries}: CountriesProps) => {
   return (
     <div>
       <p>main page</p>
