@@ -1,8 +1,19 @@
 import React, { FC } from 'react'
+import { Country } from '../interfaces/countriesInterface'
 
-const MainPage: FC = () => {
+interface CountriesProps {
+  countries: Country[]
+}
+
+const MainPage: FC<CountriesProps> = ({countries}) => {
   return (
-    <div>MainPage</div>
+    <div>
+      <p>main page</p>
+      {countries.map((country) => {
+        return <p key={country.code}>{country.name}</p>
+      })}
+    </div>
+
   )
 }
 
