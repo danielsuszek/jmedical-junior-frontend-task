@@ -9,18 +9,24 @@ import { GET_COUNTRIES } from '../GraphQL/getCountries';
 const CountriesList: FC = () => {
   const { error, loading, data } = useQuery(GET_COUNTRIES)
   // console.log({ error, loading, data });
-
-  if (loading) return <div>Ładowanie...</div>
-
-  if (error) return <div>Coś poszło nie tak...</div>
   
   return (
-    <div className="countriesList">
-      {data.countries.map((country: Country) =>              
-        <CountryItem country={country} key={country.code} />
+    <div>
+      {loading ? (
+        <h2>Ładowanie...</h2>
+      ) : error ? (
+        <h2>Coś poszło źle... {error}</h2>
+      ) : (
+        <div className="productpage">
+          {data.countries.map((country: Country) =>              
+            <CountryItem country={country} key={country.code} />
+          )}
+        </div>
       )}
     </div>
-  )
+
+  )  
 }
 
 export default CountriesList
+

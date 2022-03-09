@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 import { Country } from '../interfaces/countriesInterface'
 
 interface CountryProps {
@@ -8,10 +9,12 @@ interface CountryProps {
 const CountryItem: FC<CountryProps> = ({country}: CountryProps) => {
   return (
     <div className="countryItem">
-      <ul>
-        <li>{country.name}</li>
-        <li>{country.code}</li>
-      </ul>
+      <Link to={`/${country.code}`}>
+        <div>
+          <p>{country.name}</p>
+          <p>{country.code}</p>          
+        </div>
+      </Link>
     </div>
   )
 }
