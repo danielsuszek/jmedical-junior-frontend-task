@@ -1,13 +1,12 @@
 import React, { FC } from 'react'
 
-import { useQuery } from '@apollo/client';
+import { useCountries } from '../hooks/useCountries'
 
 import { Country } from '../interfaces/countriesInterface'
 import CountryItem from './CountryItem'
-import { GET_COUNTRIES } from '../GraphQL/getCountries';
 
 const CountriesList: FC = () => {
-  const { error, loading, data } = useQuery(GET_COUNTRIES)
+  const {error, loading, data} = useCountries()
   // console.log({ error, loading, data });
   
   return (
@@ -15,7 +14,7 @@ const CountriesList: FC = () => {
       {loading ? (
         <h2>Ładowanie...</h2>
       ) : error ? (
-        <h2>Coś poszło źle... {error}</h2>
+        <h2>Coś poszło źle... </h2>
       ) : (
         <div className="productpage">
           {data.countries.map((country: Country) =>              
