@@ -10,9 +10,9 @@ const link = from([
   new HttpLink({ uri: "https://countries.trevorblades.com/graphql" }),
 ]);
 
-const client = new ApolloClient({
+const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: link,
 });
 
-export default client
+export default apolloClient
