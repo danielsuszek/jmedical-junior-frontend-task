@@ -8,7 +8,6 @@ const MainPage: FC = () => {
     <div>
       <p>Strona główna</p>
        <CountriesList />
-      
     </div>
 
   )

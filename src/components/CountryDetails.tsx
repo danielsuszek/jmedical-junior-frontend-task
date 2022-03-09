@@ -9,9 +9,28 @@ const CountryDetails = () => {
   
   const {data, loading, error} = useCountry(code!)
   console.log({data, loading, error});
-  
+
   return (
-    <div>CountryDetails</div>
+    <div className="countryDetails">
+      {loading ? (
+        <h2>Ładowanie...</h2>
+      ) : error ? (
+        <h2>Coś poszło źle... </h2>
+      ) : (
+        <div>
+          <div>
+            {data.country.name}
+          </div>
+          <div>
+            {data.country.code}
+          </div>
+          <div>
+            {data.country.emoji}
+          </div>
+        </div>
+      )}
+
+    </div>
   )
 }
 

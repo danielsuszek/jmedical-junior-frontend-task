@@ -8,6 +8,7 @@ query GetCountry($id: ID!) {
     languages {
       name
     }
+    emoji
   }  
 }
 `;
