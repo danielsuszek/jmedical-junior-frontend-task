@@ -1,18 +1,21 @@
 import React, { FC } from 'react'
-import CountryItem from '../components/CountryItem'
+import { useGetCountries } from '../hooks/getCountries'
 import { Country } from '../interfaces/countriesInterface'
 
-interface CountriesProps {
-  countries: Country[]
-}
+// interface CountriesProps {
+//   countries: Country[]
+// }
 
-const MainPage: FC<CountriesProps> = ({countries}: CountriesProps) => {
+const MainPage: FC = () => {
+    const countries = useGetCountries()
+    console.log(countries);
+  
   return (
     <div>
       <p>main page</p>
-      {countries.map((country) => 
+      {/* {countries.map((country) => 
         <CountryItem key={country.name} country={country} />
-      )}  
+      )}   */}
     </div>
 
   )
