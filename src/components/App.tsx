@@ -8,11 +8,10 @@ import CityDetailsPage from '../pages/CityDetailsPage'
 import MainPage from '../pages/MainPage'
 
 const App: FC = () => {
-  
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <h2>List of countries</h2>
+        <h2>Lista krajów</h2>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/:code" element={<CityDetailsPage />}/>
