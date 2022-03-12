@@ -1,25 +1,13 @@
-import React, { FC, useState, FormEvent } from 'react'
+import React, { FC, useState, FormEvent, useEffect } from 'react'
 import Select, { OptionProps, Options } from 'react-select'
 
 
-
-
-
-interface Continent {
+interface ContinentToSelect {
   label: String;
   value: String
 }
 
-const continents: Continent[] = [
-      {
-        "label": "Africa",
-        "value": "AF"
-      },
-      {
-        "label": "Antarctica",
-        "value": "AN"
-      },    
-    ]  
+
 
 // interface Continents {
 //   continents: Continent[]
@@ -28,21 +16,38 @@ const continents: Continent[] = [
 
 
 const SelectContinentFilter: FC = () => {
+  const continents: ContinentToSelect[] = [
+    {
+      "label": "Africa",
+      "value": "AF"
+    },
+    {
+      "label": "Antarctica",
+      "value": "AN"
+    },    
+  ]  
   const [selectedContinent, setSelectedContinent] = useState({})
   
+  // const handleOnClick = () => {
+  //   console.log('click');
+  //   continents.push({
+  //     "label": "test1",
+  //     "value": "test2"  
+  //   })
+  // }
+  
   console.log(selectedContinent);
-  const onChangeContinent = (option: Continent | null) => {
+  const onChangeContinent = (option: ContinentToSelect | null) => {
     console.log(option);
     setSelectedContinent((option) => option)
 
   }
-  
   return (
     <div>
       SelectContinentFilter
-      <Select<Continent>
+      <Select<ContinentToSelect>
         options={continents}  
-        onChange={onChangeContinent}
+        onChange={onChangeContinent}        
       />
     </div>
   )
