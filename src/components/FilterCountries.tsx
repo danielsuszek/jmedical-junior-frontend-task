@@ -1,9 +1,10 @@
 import React from 'react'
+import SelectContinentFilter from './SelectContinentFilter'
 
 const FilterCountries = () => {
   return (
     <div className="filterCountries">
-      FilterCountries
+      <SelectContinentFilter />
     </div>
   )
 }
