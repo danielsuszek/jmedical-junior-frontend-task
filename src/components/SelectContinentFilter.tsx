@@ -1,5 +1,5 @@
-import React, { FC, useState, FormEvent, useEffect } from 'react'
-import Select, { OptionProps, Options } from 'react-select'
+import React, { FC, useState } from 'react'
+import Select from 'react-select'
 import { useContinents } from '../hooks/useContinents';
 
 interface Continent {
@@ -18,18 +18,26 @@ const SelectContinentFilter: FC = () => {
   const continents: Continent[] = (data) ? data.continents : []
   console.log(continents);
 
-  const continentsToSelect: ContinentToSelect[] = [
-    {
-      "label": "Africa",
-      "value": "AF"
-    },
-    {
-      "label": "Antarctica",
-      "value": "AN"
-    },    
-  ]  
+  // const continentsToSelect: ContinentToSelect[] = [
+  //   {
+  //     "label": "Africa",
+  //     "value": "AF"
+  //   },
+  //   {
+  //     "label": "Antarctica",
+  //     "value": "AN"
+  //   },    
+  // ]  
+  const continentsToSelect: ContinentToSelect[] = []
 
-  
+  continents.map((continent: Continent) => 
+    continentsToSelect.push(
+      {
+        label: continent.name,
+        value: continent.code
+      }
+    )
+  )
   
   const [selectedContinent, setSelectedContinent] = useState({})  
   console.log(selectedContinent);
