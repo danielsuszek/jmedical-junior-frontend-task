@@ -29,6 +29,8 @@ const SelectContinentFilter: FC = () => {
     },    
   ]  
 
+  
+  
   const [selectedContinent, setSelectedContinent] = useState({})  
   console.log(selectedContinent);
 
@@ -37,7 +39,7 @@ const SelectContinentFilter: FC = () => {
     setSelectedContinent((option) => option)
 
   }
-  
+
   return (
     <div>
       {loading ? (
