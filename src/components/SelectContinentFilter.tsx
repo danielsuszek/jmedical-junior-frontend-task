@@ -1,21 +1,24 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useContext, useState } from 'react'
 import Select from 'react-select'
+import { ContinentContext } from '../context/ContinentContext';
 import { useContinents } from '../hooks/useContinents';
 
 interface Continent {
-  name: String;
-  code: String;
+  name: string;
+  code: string;
 }
 
 interface ContinentToSelect {
-  label: String;
-  value: String
+  label: string;
+  value: string
 }
 
 const SelectContinentFilter: FC = () => {
   const {error, loading, data} = useContinents()
   const continents: Continent[] = (data) ? data.continents : []
   console.log(continents);
+  const continentContext = useContext(ContinentContext)
+  console.log('from context', continentContext.continent);
   // const continentsToSelect: ContinentToSelect[] = [
   //   {
   //     "label": "Africa",
@@ -39,8 +42,12 @@ const SelectContinentFilter: FC = () => {
     
   
   const onChangeContinent = (option: ContinentToSelect | null) => {
-    console.log('selected option from state', option?.value);
-    
+    if (continentContext) {
+      continentContext.setContinent({
+        label: option?.label,
+        value: option?.value
+      })
+    }
 
   }
 

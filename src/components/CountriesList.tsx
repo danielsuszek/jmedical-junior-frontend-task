@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
+import { ContinentContext } from '../context/ContinentContext'
 
 import { useCountries } from '../hooks/useCountries'
 
@@ -8,6 +9,9 @@ import CountryItem from './CountryItem'
 const CountriesList: FC = () => {
   const {error, loading, data} = useCountries()
   // console.log({ error, loading, data });
+  const continentContext = useContext(ContinentContext)
+
+  console.log('from list', continentContext.continent?.value);
   
   return (
     <div>

@@ -1,8 +1,8 @@
 import { createContext, useState } from "react"
 
 export type SelectedContinent = {
-  label: string;
-  value: string;
+  label: string | undefined;
+  value: string | undefined;
 }
 
 type SelectedContinentContextType = {
@@ -14,7 +14,7 @@ type SelectedContinentProviderProps = {
   children: React.ReactNode
 }
 
-export const ContinentContext = createContext<SelectedContinentContextType | null>(null)
+export const ContinentContext = createContext({} as SelectedContinentContextType)
 
 export const SelectedContinentContextProvider = ({children}: SelectedContinentProviderProps) => {
   const [continent, setContinent] = useState<SelectedContinent |null>(null)
