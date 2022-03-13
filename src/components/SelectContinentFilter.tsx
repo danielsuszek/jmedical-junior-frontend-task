@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from 'react'
+import React, { FC, useContext } from 'react'
 import Select from 'react-select'
 import { ContinentContext } from '../context/ContinentContext';
 import { useContinents } from '../hooks/useContinents';
@@ -21,6 +21,7 @@ const SelectContinentFilter: FC = () => {
   
   const continentsToSelect: ContinentToSelect[] = []
 
+  
   continents.map((continent: Continent) => 
     continentsToSelect.push(
       {
@@ -29,7 +30,6 @@ const SelectContinentFilter: FC = () => {
       }
     )
   )
-    
   
   const onChangeContinent = (option: ContinentToSelect | null) => {
     if (continentContext) {
