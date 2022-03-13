@@ -15,20 +15,10 @@ interface ContinentToSelect {
 
 const SelectContinentFilter: FC = () => {
   const {error, loading, data} = useContinents()
+  
   const continents: Continent[] = (data) ? data.continents : []
-  console.log(continents);
   const continentContext = useContext(ContinentContext)
-  console.log('from context', continentContext.continent);
-  // const continentsToSelect: ContinentToSelect[] = [
-  //   {
-  //     "label": "Africa",
-  //     "value": "AF"
-  //   },
-  //   {
-  //     "label": "Antarctica",
-  //     "value": "AN"
-  //   },    
-  // ]  
+  
   const continentsToSelect: ContinentToSelect[] = []
 
   continents.map((continent: Continent) => 
@@ -59,7 +49,6 @@ const SelectContinentFilter: FC = () => {
         <h2>Coś poszło źle... </h2>
       ) : (
         <div>
-          SelectContinentFilter
           <Select<ContinentToSelect>
             options={continentsToSelect}  
             onChange={onChangeContinent}        
