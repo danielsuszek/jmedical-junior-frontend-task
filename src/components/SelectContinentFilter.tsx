@@ -14,10 +14,8 @@ interface ContinentToSelect {
 
 const SelectContinentFilter: FC = () => {
   const {error, loading, data} = useContinents()
-  
   const continents: Continent[] = (data) ? data.continents : []
   console.log(continents);
-
   // const continentsToSelect: ContinentToSelect[] = [
   //   {
   //     "label": "Africa",
@@ -38,13 +36,11 @@ const SelectContinentFilter: FC = () => {
       }
     )
   )
+    
   
-  const [selectedContinent, setSelectedContinent] = useState({})  
-  console.log(selectedContinent);
-
   const onChangeContinent = (option: ContinentToSelect | null) => {
-    console.log(option);
-    setSelectedContinent((option) => option)
+    console.log('selected option from state', option?.value);
+    
 
   }
 
