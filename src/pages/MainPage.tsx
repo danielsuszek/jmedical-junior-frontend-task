@@ -13,11 +13,10 @@ const MainPage: FC = () => {
     <div>
       <p>Strona główna</p>
         <FilterCountries />
-        {(continentContext.continent) ? 
+        {(continentContext.continent && continentContext.continent.value !== 'all') ? 
             <CountriesByContinent />:
             <CountriesList />
         }
-
         
     </div>
 

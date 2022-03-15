@@ -17,9 +17,13 @@ const SelectContinentFilter: FC = () => {
   const {error, loading, data} = useContinents()
   
   const continents: Continent[] = (data) ? data.continents : []
+  
   const continentContext = useContext(ContinentContext)
   
-  const continentsToSelect: ContinentToSelect[] = []
+  const continentsToSelect: ContinentToSelect[] = [{
+    label: 'Wszystko',
+    value: 'all'
+  }]
 
   
   continents.map((continent: Continent) => 
