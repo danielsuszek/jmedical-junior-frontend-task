@@ -9,6 +9,9 @@ const CountriesList: FC = () => {
   
   const {error, loading, data} = useCountries()
 
+  if (! error && !loading ) {
+    localStorage.setItem('countries', JSON.stringify(data.countries))
+  }
   return (
     <div>
         {loading ? (
