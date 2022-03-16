@@ -1,6 +1,7 @@
 import React, { FC, useContext } from 'react'
 import Select from 'react-select'
 import { ContinentContext } from '../context/ContinentContext';
+import { CountryByNameContext } from '../context/CountryByNameContext';
 import { useContinents } from '../hooks/useContinents';
 
 interface Continent {
@@ -19,6 +20,7 @@ const SelectContinentFilter: FC = () => {
   const continents: Continent[] = (data) ? data.continents : []
   
   const continentContext = useContext(ContinentContext)
+  const countryByNameContext = useContext(CountryByNameContext)
   
   const continentsToSelect: ContinentToSelect[] = [{
     label: 'Wszystko',
@@ -36,13 +38,15 @@ const SelectContinentFilter: FC = () => {
   )
   
   const onChangeContinent = (option: ContinentToSelect | null) => {
+    // switch off filter by name
+    countryByNameContext.setCountry(null)
+
     if (continentContext) {
       continentContext.setContinent({
         label: option?.label,
         value: option?.value
       })
     }
-
   }
 
   return (
@@ -55,7 +59,8 @@ const SelectContinentFilter: FC = () => {
         <div>
           <Select<ContinentToSelect>
             options={continentsToSelect}  
-            onChange={onChangeContinent}        
+            onChange={onChangeContinent}       
+            
           />
         </div>
       )}

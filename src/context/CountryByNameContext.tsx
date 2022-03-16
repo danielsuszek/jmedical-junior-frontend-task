@@ -1,12 +1,10 @@
 import { createContext, useState } from "react"
+import { Country } from "../interfaces/countriesInterface";
 
-type CountryByName = {
-  name: string | null
-}
 
 type CountryByNameContextType = {
-  country: CountryByName | null
-  setCountry: React.Dispatch<React.SetStateAction<CountryByName | null>>; 
+  country: Country | null
+  setCountry: React.Dispatch<React.SetStateAction<Country | null>>; 
 }
 
 type CountryByNameProviderProps = {
@@ -16,7 +14,7 @@ type CountryByNameProviderProps = {
 export const CountryByNameContext = createContext( {} as CountryByNameContextType)
 
 export const CountryByNameContextProvider = ({children}: CountryByNameProviderProps) => {
-  const [country, setCountry] = useState<CountryByName | null>(null)
+  const [country, setCountry] = useState<Country | null>(null)
   return (
     <CountryByNameContext.Provider value={{country, setCountry}}>
       {children}

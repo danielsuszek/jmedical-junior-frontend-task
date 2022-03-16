@@ -1,19 +1,12 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 
 import { useCountries } from '../hooks/useCountries'
 
 import { Country } from '../interfaces/countriesInterface'
 import CountryItem from './CountryItem'
+import { getCountriesFromLS, setCountriesToLS } from '../helpers/localstorage'
 
 // helpers
-const setCountriesToLS = (countries: Country[]): void => {
-  localStorage.setItem('countries', JSON.stringify(countries))
-}
-
-const getCountriesFromLS = (countryName: string) => {
-  return JSON.parse(localStorage.getItem(countryName) || "")
-}
-
 const countriesToDisplay = () => {
   return getCountriesFromLS("countries")
 }
@@ -23,10 +16,9 @@ const CountriesList: FC = () => {
   const {error, loading, data} = useCountries()
 
   if (! error && !loading ) { 
-    setCountriesToLS(data.countries)
-    // setCountriesToLS([{code: "PL", name: "Poland"}])
+    setCountriesToLS('countries',data.countries)
   }
-
+  
   return (
     <div>
         {loading ? (
