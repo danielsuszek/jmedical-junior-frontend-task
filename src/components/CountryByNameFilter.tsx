@@ -1,3 +1,5 @@
+import './countryByNameFilter.css'
+
 import React, { FC, FormEvent, useState, useContext } from 'react'
 import { ContinentContext } from '../context/ContinentContext'
 import { CountryByNameContext } from '../context/CountryByNameContext'
@@ -40,10 +42,21 @@ const CountryByNameFilter: FC = () => {
   }
 
   return (
-    <div className="">
+    <div className="filterByName">
       <form onSubmit={submitHandler}>
-        <input type="text" value={searchCountry} onChange={changeHandler}/>
-        <button type="submit">Szukaj kraju</button>
+        <p>Podaj nazwę kraju po angielsku używając dużych liter np. Poland, Spain</p>        
+        <input 
+          type="text" 
+          value={searchCountry} 
+          onChange={changeHandler}
+          className="inputFindByName"  
+        />
+          
+        <button 
+          type="submit"
+          className="btnFindByName"
+        
+        >Szukaj kraju</button>
       </form>    
     </div>
   )

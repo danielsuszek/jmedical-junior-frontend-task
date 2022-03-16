@@ -1,3 +1,5 @@
+import './selectContinentFilter.css'
+
 import React, { FC, useContext } from 'react'
 import Select from 'react-select'
 import { ContinentContext } from '../context/ContinentContext';
@@ -60,7 +62,7 @@ const SelectContinentFilter: FC = () => {
           <Select<ContinentToSelect>
             options={continentsToSelect}  
             onChange={onChangeContinent}       
-            
+            className='selectContinent'
           />
         </div>
       )}

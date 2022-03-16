@@ -1,0 +1,13 @@
+.filterByName {
+  width: 50%;
+  margin: 10px;
+}
+
+.inputFindByName, .btnFindByName {
+  font-size: 20px;
+  padding: 8px;
+}
+
+.btnFindByName {
+  margin-left: 30px
+}
