@@ -8,7 +8,6 @@ const CountryDetails = () => {
   const { code } = useParams()
   
   const {data, loading, error} = useCountry(code!)
-  console.log({data, loading, error});
 
   return (
     <div className="countryDetails">

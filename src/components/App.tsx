@@ -8,7 +8,6 @@ import CityDetailsPage from '../pages/CityDetailsPage'
 import MainPage from '../pages/MainPage'
 import { SelectedContinentContextProvider } from '../context/ContinentContext'
 import { CountryByNameContextProvider } from '../context/CountryByNameContext'
-// import ContinentContext from '../context/ContinentContext'
 
 const App: FC = () => {
   return (

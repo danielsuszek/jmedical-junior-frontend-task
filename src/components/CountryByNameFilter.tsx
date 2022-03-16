@@ -3,9 +3,7 @@ import './countryByNameFilter.css'
 import React, { FC, FormEvent, useState, useContext } from 'react'
 import { ContinentContext } from '../context/ContinentContext'
 import { CountryByNameContext } from '../context/CountryByNameContext'
-import { getCountriesFromLS, setCountriesToLS } from '../helpers/localstorage'
-import { Country } from '../interfaces/countriesInterface'
-// import CountryByName from './CountryByName'
+import { getCountriesFromLS} from '../helpers/localstorage'
 
 const CountryByNameFilter: FC = () => {
   const countriesFromLS = getCountriesFromLS('countries')
